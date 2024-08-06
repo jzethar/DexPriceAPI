@@ -23,14 +23,6 @@ type ContractParams struct {
 	Data string `json:"data,omitempty"`
 }
 
-// type TokenPrice struct {
-// 	Token0   string `json:"token0,omitempty"`
-// 	Token1   string `json:"token1,omitempty"`
-// 	PriceT0  string `json:"price_of_token0,omitempty"`
-// 	PriceT1  string `json:"price_of_token1,omitempty"`
-// 	Decimals string `json:"decimals,omitempty"`
-// }
-
 const (
 	two96Str             = "79228162514264337593543950336"
 	ethCall              = "eth_call"
