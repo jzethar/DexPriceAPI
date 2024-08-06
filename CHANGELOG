@@ -1,0 +1,6 @@
+## Alpha-Beta 0.0.0v
+This is the initial version of the project. However, some progress has already been made, including:
+- Research on STonFi contracts on the TON blockchain.
+- Research on UniSwap contracts on Ethereum.
+- Development of an initial version of the API server (which will need to be rewritten).
+Some mathematical aspects may need to be reviewed, particularly due to the challenges of working with integer operations, which has been a bit of a pain point. Future versions are planned to include support for additional protocols, possibly starting with one on Solana and later adding support for Tron to increase diversity.
