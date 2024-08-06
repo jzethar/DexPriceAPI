@@ -1,0 +1,43 @@
+version: "3.7"
+
+x-logging: &logging
+  logging:
+    driver: json-file
+    options:
+      max-size: 5m
+      max-file: "2"
+
+volumes:
+  dex_prices:
+    driver: local
+    driver_opts:
+      type: none
+      device: /var/lib/dex_prices # TODO rename before git
+      o: bind
+
+
+services:
+  dex_api:
+    build:
+      context: .
+      dockerfile: dex_prices.Dockerfile
+    restart: on-failure
+    stop_grace_period: 1m
+    deploy:
+      resources:
+        limits:
+          memory: 2G
+          cpus: "2"
+    <<: *logging
+    ports:
+      - 127.0.0.1:15001:15001 # API
+      # TODO: add swagger
+    networks:
+      - dex_prices_net
+    volumes:
+      - dex_prices:/home/dex_prices
+      - ./config.yaml:/home/dex_prices/config.yaml
+    command: ["./main", "-c", "/home/dex_prices/"]
+
+networks:
+  dex_prices_net:
